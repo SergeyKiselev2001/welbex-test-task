@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppContext from './Context/Context';
+
+
+const Main = () => {
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  return (
+    <React.StrictMode>
+      <AppContext.Provider value={{currentPage, setCurrentPage}} >
+        <App />
+      </AppContext.Provider>
+  </React.StrictMode>
+  )
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Main /> ,
   document.getElementById('root')
 );
 
