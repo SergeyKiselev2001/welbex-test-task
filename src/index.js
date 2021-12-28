@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {AppContext, FilterContext, PagesAmount} from './Context/Context';
+import {AppContext, FilterContext, PagesAmount, RowsContext} from './Context/Context';
+import { dataAccessLayer } from './DAL/DAL';
 
 
 // const http = require("http");
@@ -20,6 +21,8 @@ import {AppContext, FilterContext, PagesAmount} from './Context/Context';
 
 
 const Main = () => {
+
+ 
 
   const [currentPage, setCurrentPage] = useState(0);
   const [filter, setFilter] = useState({

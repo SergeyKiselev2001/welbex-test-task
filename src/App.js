@@ -8,8 +8,6 @@ import AppContext from './Context/Context';
 
 const App = (props) => {
 
-  
-
   return (
     <div className="App">
 

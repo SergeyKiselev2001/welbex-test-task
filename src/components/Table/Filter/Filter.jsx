@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { FilterContext } from "../../../Context/Context";
+import { AppContext, FilterContext } from "../../../Context/Context";
 import classes from "./Filter.module.css";
 
 const Filter = (props) => {
@@ -7,18 +7,20 @@ const Filter = (props) => {
   const [condition, setCondition] = useState('Равно');
   const [inputText, setinputText] = useState('');
 
+
+  const {currentPage, setCurrentPage} = useContext(AppContext);
   const {filter, setFilter} = useContext(FilterContext);
 
   const filtering = (event) => {
     event.preventDefault();
-
-    debugger;
 
     setFilter({
         name: columnName,
         condition: condition,
         value: inputText
     });
+
+    setCurrentPage(0);
   };
 
   const resseting = event => {
@@ -32,6 +34,8 @@ const Filter = (props) => {
     setColumnName('Название');
     setCondition('Равно');
     setinputText('');
+
+    setCurrentPage(0);
   }
 
   const nameChanging = (event) => {

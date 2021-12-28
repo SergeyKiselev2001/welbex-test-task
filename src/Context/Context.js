@@ -6,5 +6,7 @@ export const FilterContext = React.createContext();
 
 export const PagesAmount = React.createContext();
 
+export const RowsContext = React.createContext();
+
 
 

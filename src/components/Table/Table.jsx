@@ -11,7 +11,6 @@ const Table = (props) => {
 
   const rowsForCurrentPage = props.data.filter((el,index)=>index>=currentPage*ROWS_PER_PAGE && index<currentPage*ROWS_PER_PAGE+ROWS_PER_PAGE);
 
-
   const rows = rowsForCurrentPage.map((el, index) => {
     return (
       <tr key={index}>
@@ -22,8 +21,6 @@ const Table = (props) => {
       </tr>
     );
   });
-
-
 
 
   return (
@@ -39,7 +36,6 @@ const Table = (props) => {
         </tr>
         {rows}
         </tbody>
-
       </table>
     </div>
   );
