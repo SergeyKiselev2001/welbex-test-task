@@ -1,7 +1,7 @@
 
 
 import { useContext, useEffect, useState } from 'react';
-import AppContext from '../../Context/Context';
+import {AppContext} from '../../Context/Context';
 import classes from './Pagination.module.css';
 
 const Pagination = props => {
@@ -12,9 +12,9 @@ const Pagination = props => {
 
     for (let i = 0; i < props.amount; i++){
         if (i == currentPage){
-            buttons.push(<button className={classes.button + ' ' + classes.button_active}>{i+1}</button>)
+            buttons.push(<button key={i} className={classes.button + ' ' + classes.button_active}>{i+1}</button>)
         } else {
-            buttons.push(<button onClick={()=>changePage(i)} className={classes.button}>{i+1}</button>)
+            buttons.push(<button key={i} onClick={()=>changePage(i)} className={classes.button}>{i+1}</button>)
         }
     }
 

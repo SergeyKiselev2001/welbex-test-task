@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { PagesAmount } from "../../Context/Context";
 import { dataAccessLayer } from "../../DAL/DAL";
 import Pagination from "./Pagination";
 
@@ -6,12 +8,7 @@ import Pagination from "./Pagination";
 
 const PaginationContainer = props => {
 
-    const ROWS_PER_PAGE = 10;
-
-    const rowsAmount = dataAccessLayer.getData().length;
-    
-    const pagesAmount = Math.ceil(rowsAmount / ROWS_PER_PAGE);
-    
+    const {pagesAmount, setPagesAmount} = useContext(PagesAmount);
 
     return (
         <div>

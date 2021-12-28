@@ -1,51 +1,85 @@
+import { useContext, useEffect, useState } from "react";
+import { FilterContext } from "../../../Context/Context";
+import classes from "./Filter.module.css";
 
+const Filter = (props) => {
+  const [columnName, setColumnName] = useState('Название');
+  const [condition, setCondition] = useState('Равно');
+  const [inputText, setinputText] = useState('');
 
-import { useEffect, useState } from 'react';
-import classes from './Filter.module.css';
+  const {filter, setFilter} = useContext(FilterContext);
 
-const Filter = props => {
+  const filtering = (event) => {
+    event.preventDefault();
 
-    const [columnName, setColumnName] = useState('name');
-    const [condition, setCondition] = useState('name');
+    debugger;
 
+    setFilter({
+        name: columnName,
+        condition: condition,
+        value: inputText
+    });
+  };
 
+  const resseting = event => {
+    event.preventDefault();
+    setFilter({
+        name: '',
+        condition: '',
+        value: ''
+    });
 
-    const filter = (event) => {
-        event.preventDefault();
+    setColumnName('Название');
+    setCondition('Равно');
+    setinputText('');
+  }
 
-        console.log(columnName,' + ' ,condition)
-    }
+  const nameChanging = (event) => {
+    setColumnName(event.target.value);
+  };
 
-    const nameChanging = event => {
-        setColumnName(event.target.value);
-    }
+  const conditionChanging = (event) => {
+    setCondition(event.target.value);
+  };
 
-    const conditionChanging = event => {
-        setCondition(event.target.value);
-    }
+  const textChanging = (event) => {
+    setinputText(event.target.value);
+  };
 
-    return (
-        <div className={classes.filter}>
-            <form onSubmit={(e)=>filter(e)} action="">
-                <select onChange={(e)=>nameChanging(e)} value={columnName}>
-                    <option>Столбец</option>
-                    <option name='name' >Название</option>
-                    <option name='amount'>Количество</option>
-                    <option name='distance'>Расстояние</option>
-                </select>
-                <select onChange={(e)=>conditionChanging(e)} value={condition}>
-                    <option>Условие</option>
-                    <option name='equal'>Равно</option>
-                    <option name='contain'>Содержит</option>
-                    <option name='larger'>Больше</option>
-                    <option name='smaller'>Меньше</option>
-                </select>
-                <input type="text" placeholder='text' />
-                <button>Сброс</button>
-                <button type='submit'>Фильтр</button>
-            </form>
+  return (
+    <div className={classes.filter}>
+      <form  action="">
+        <div className={classes.column}>
+          <select onChange={(e) => nameChanging(e)} value={columnName}>
+            <option>Название</option>
+            <option>Количество</option>
+            <option>Расстояние</option>
+          </select>
         </div>
-    )
-}
+
+        <div className={classes.column}>
+          <select onChange={(e) => conditionChanging(e)} value={condition}>
+            <option>Равно</option>
+            <option>Содержит</option>
+            <option>Больше</option>
+            <option>Меньше</option>
+          </select>
+        </div>
+
+        <div className={classes.column}>
+          <input
+            onChange={(e) => textChanging(e)}
+            type="text"
+            placeholder="text"
+            value={inputText}
+          />
+        </div>
+
+        <button onClick={(e) => resseting(e)} className={classes.submit}>Сброс</button>
+        <button onClick={(e) => filtering(e)} className={classes.submit} type="submit">Фильтр</button>
+      </form>
+    </div>
+  );
+};
 
 export default Filter;

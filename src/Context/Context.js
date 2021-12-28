@@ -1,6 +1,10 @@
 import React from "react";
 
-const AppContext = React.createContext();
+export const AppContext = React.createContext();
 
-export default AppContext;
+export const FilterContext = React.createContext();
+
+export const PagesAmount = React.createContext();
+
+
 

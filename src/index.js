@@ -3,17 +3,41 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AppContext from './Context/Context';
+import {AppContext, FilterContext, PagesAmount} from './Context/Context';
+
+
+// const http = require("http");
+
+// const host = 'localhost';
+// const port = 8000;
+
+// const requestListener = function (req, res) {};
+
+// const server = http.createServer(requestListener);
+// server.listen(port, host, () => {
+//     console.log(`Server is running on http://${host}:${port}`);
+// });
 
 
 const Main = () => {
 
   const [currentPage, setCurrentPage] = useState(0);
+  const [filter, setFilter] = useState({
+    name: 'X',
+    condition: 'X',
+    value: 'X'
+  });
+
+  const [pagesAmount, setPagesAmount] = useState(0);
 
   return (
     <React.StrictMode>
       <AppContext.Provider value={{currentPage, setCurrentPage}} >
-        <App />
+        <FilterContext.Provider value={{filter, setFilter}}>
+        <PagesAmount.Provider value={{pagesAmount, setPagesAmount}}>
+          <App />
+        </PagesAmount.Provider>
+        </FilterContext.Provider>
       </AppContext.Provider>
   </React.StrictMode>
   )
