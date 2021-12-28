@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.fe31aea9.css",
-    "main.js": "/react-gh-pages/static/js/main.0a538234.js",
-    "static/js/787.4f64c7e6.chunk.js": "/react-gh-pages/static/js/787.4f64c7e6.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.fe31aea9.css.map": "/react-gh-pages/static/css/main.fe31aea9.css.map",
-    "main.0a538234.js.map": "/react-gh-pages/static/js/main.0a538234.js.map",
-    "787.4f64c7e6.chunk.js.map": "/react-gh-pages/static/js/787.4f64c7e6.chunk.js.map"
+    "main.css": "/SergeyKiselev2001/welbex-test-task/static/css/main.fe31aea9.css",
+    "main.js": "/SergeyKiselev2001/welbex-test-task/static/js/main.d16c73e2.js",
+    "static/js/787.4f64c7e6.chunk.js": "/SergeyKiselev2001/welbex-test-task/static/js/787.4f64c7e6.chunk.js",
+    "index.html": "/SergeyKiselev2001/welbex-test-task/index.html",
+    "main.fe31aea9.css.map": "/SergeyKiselev2001/welbex-test-task/static/css/main.fe31aea9.css.map",
+    "main.d16c73e2.js.map": "/SergeyKiselev2001/welbex-test-task/static/js/main.d16c73e2.js.map",
+    "787.4f64c7e6.chunk.js.map": "/SergeyKiselev2001/welbex-test-task/static/js/787.4f64c7e6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe31aea9.css",
-    "static/js/main.0a538234.js"
+    "static/js/main.d16c73e2.js"
   ]
 }
